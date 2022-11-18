@@ -6,8 +6,8 @@ import '../CrudCurso/CrudCurso.js';
 
 const title = "Cadastro de Alunos";
 
-const urlAPI = "http://localhost:5172/api/aluno";
-const urlAPICurso = "http://localhost:5172/api/curso";
+const urlAPI = "http://localhost:5096/api/aluno";
+const urlAPICurso = "http://localhost:5096/api/curso";
 
 const initialState = {
     aluno: { id: 0, ra: '', nome: '', codCurso: 0 },

@@ -6,20 +6,23 @@ import AuthService from './services/Auth.service';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import CrudLivro from './components/CrudLivro/CrudLivro'
+import ListaLivro from './components/ListaLivro/ListaLivro';
 export default function Rotas() {
     const [currentUser, setCurrentUser] = useState(undefined);
     useEffect(() => {
         const user = AuthService.getCurrentUser();
         if (user) {
+            
             setCurrentUser(user);
+
         }
     }, []);
     return (
         <Routes>
             <Route exact path='/'
                 element={
-                    <Main title="Bem Vindo!">
-                        <div>Cadastro de alunos, cursos e carômetro</div>
+                    <Main title="Bem Vindo a biblioteca!">
+                        <ListaLivro></ListaLivro>
                     </Main>}
             />
             {currentUser ? (
@@ -59,10 +62,12 @@ export default function Rotas() {
                     </Main>
                 }
             />
+            
             <Route path='/login' element={<Login />} />
             <Route path='/logout' element={<Logout />} />
             <Route path="*" to='/' />
             <Route path="/livro" element={<CrudLivro/>}/>
+         
         </Routes>
     )
 }

@@ -2,13 +2,15 @@ import React, {useState,useEffect } from "react";
 import Menu from '../template/Menu.js'
 import Main from "../template/Main";
 import axios from "axios";
-import Card from "../CrudLivro/Cards.js";
+import Card from "../ListaLivro/Cards.js";
+import CrudLivro from "../CrudLivro/CrudLivro.js";
 
-const title = "Consulta e Cadastro de Livro";
+
+const title = "Consulta Livros";
 
 const urlAPI = "http://localhost:5092/api/Livro";
 
-export default function CrudLivro() {
+export default function ListaLivro() {
  
   const [lista, setLista] = useState ([])
   
@@ -17,8 +19,7 @@ export default function CrudLivro() {
     codLivro: 0,
     nomeLivro: "",
     dataLivro: "",
-    imagem:""
-    
+    imagem: ""
   }])
 
 const [Atualizar, setAtualizar] = useState(false)
@@ -87,68 +88,7 @@ const [Atualizar, setAtualizar] = useState(false)
     return (
       <div className="inserir-container">
      
-      {Atualizar && <>
-      
-        <label> <p className="textLabel">ID:</p> </label>
-        <input
-
-          disabled = {true}
-          type="text"
-          id="idLivro"
-          placeholder="idLivro"
-          className="form-input"
-          name="codLivro"
-          value={Livro.id}
-        />
-       </> }
-      
-        <label> <p className="textLabel">Código do Livro:</p> </label>
-        <input
-          type="text"
-          id="codLivro"
-          placeholder="Código do Livro"
-          className="form-input"
-          name="codLivro"
-          value={Livro.codLivro}
-        />
-        <label> <p className="textLabel">Nome do Livro:</p> </label>
-        <input
-          type="text"
-          id="nomeLivro"
-          placeholder="Nome do Livro"
-          className="form-input"
-          name="nomeLivro"
-          value={Livro.nomeLivro}         
-        />
-        <label> <p className="textLabel">Data da Leitura:</p> </label>
-        <input
-          type="text"
-          id="dataLivro"
-          className="form-input"
-          name="dataLivro"
-          placeholder="Data a Leitura"
-          value={Livro.dataLivro}
-        />
-         <label> <p className="textLabel">Url da imagem:</p> </label>
-        <input
-          type="text"
-          id="imagem"
-          className="form-input"
-          name="imagem"
-          placeholder="imagem"
-          value={Livro.imagem}
-        />
-        {!Atualizar ?
-        <button className="btnSalvar" onClick={(e) => salvar(e)}>
-          Salvar
-        </button> : 
-        <button className="btnSalvar" onClick={(e) => atualizar()}>
-          Atualizar
-        </button>
-        }
-        <button className="btnCancelar" onClick={(e) => limpar(e)}>
-          Cancelar
-        </button>
+     
       </div>
     );
   }
@@ -172,14 +112,7 @@ const [Atualizar, setAtualizar] = useState(false)
             {lista.map((Livro) => (
               <tr key={Livro.id}>
                 <Card nomeLivro={Livro.nomeLivro} dataLivro={Livro.dataLivro} codLivro={Livro.codLivro} imgem={Livro.imagem}/>
-              
-                <td>
-
-                  <button onClick={() => carregar(Livro)}>Altera</button>
-                </td>
-                <td>
-                  <button onClick={() => remover(Livro)}>Remove</button>
-                </td>
+            
               </tr> 
             ))}
       </div>
@@ -187,12 +120,11 @@ const [Atualizar, setAtualizar] = useState(false)
   }
   
     return (
-      <Main title={title}>
-        <Menu></Menu>
+ 
+  <>
         {renderForm()}
         {renderTable()}
-        
-      </Main>
+  </>      
     );
   
 }

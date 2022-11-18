@@ -9,8 +9,8 @@ export default function Carometro() {
   const [alunos, setAlunos] = useState([]);
   const [inputCurso, setInputCurso] = useState([]);
 
-  const urlAPI = "http://localhost:5172/api/aluno";
-  const urlAPICurso = "http://localhost:5172/api/curso";
+  const urlAPI = "http://localhost:5092/api/aluno";
+  const urlAPICurso = "http://localhost:5092/api/curso";
 
   useEffect(() => {
     axios(urlAPI).then((reponse) => {

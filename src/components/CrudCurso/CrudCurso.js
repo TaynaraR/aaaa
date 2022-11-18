@@ -6,7 +6,7 @@ import Main from '../template/Main';
 
 const title = "Cadastro de Cursos";
 
-const urlAPI = "http://localhost:5172/api/curso";
+const urlAPI = "http://localhost:5092/api/curso";
 const initialState = {
     curso: { id: 0, codCurso: 0, nomeCurso: '', periodo: '' },
     lista: []
