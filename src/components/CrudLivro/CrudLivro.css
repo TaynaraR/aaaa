@@ -1,0 +1,93 @@
+.tituloListagem {
+    margin-left: 20px;
+}
+
+.listaClientes {
+    margin-left: 20px;
+    font-family:
+        'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida
+     Sans', Arial, sans-serif;
+
+}
+
+.cabecTabela {
+    background-color: #c44d58;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 0px 4px;
+}
+
+th, td {
+    box-shadow: 0px 0px 2px;
+    padding: 10px;
+    width: 100%;
+    background-color: #d7d7d7;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.tabTituloUsuario {
+    width: 100px;
+}
+
+.tabTituloNome {
+    width: 400px;
+}
+
+.inserir-container {
+    margin: 20px;
+    border-radius: 5px;
+    background-color: #d7d7d7;
+    padding: 20px;
+    box-shadow: 0px 0px 4px;
+    text-align: center;
+}
+
+
+.btnSalvar {
+    background-color: #9ffa92;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 5px 5px 30px;
+}
+
+.btnAtualizar {
+    background-color: #92c8fa;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 5px 5px 30px;
+}
+
+
+.btnCancelar {
+    background-color: #fe9ea8;
+    color: rgb(0, 0, 0);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+label {
+    padding: 10px;
+    color: black;
+}
+
+.form-input{
+    text-align: center;
+}
+
+.textLabel{
+    color: rgb(85, 85, 85);
+}
