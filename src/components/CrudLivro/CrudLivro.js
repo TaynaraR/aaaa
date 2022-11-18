@@ -1,10 +1,9 @@
 import React, {useState,useEffect } from "react";
-import "./CrudProduto.css";
-import Menu from "../components/templates/Menu";
-import Main from "../components/templates/Main";
+import Menu from '../template/Menu.js'
+import Main from "../template/Main";
 import axios from "axios";
 
-const title = "Consulta e Cadastro de Produto";
+const title = "Consulta e Cadastro de Livro";
 
 const urlAPI = "http://localhost:5172/api/Livro";
 
@@ -23,7 +22,7 @@ const [Atualizar, setAtualizar] = useState(false)
 
   useEffect(() =>{
     axios(urlAPI).then((resp) => {
-           setProduto(resp.data);
+           setLivro(resp.data);
            setLista(resp.data);
       });
   },[lista]) 
@@ -44,7 +43,7 @@ const [Atualizar, setAtualizar] = useState(false)
     }
     const metodo = "post";
     axios[metodo](urlAPI, json).then((resp) => {
-    setProduto(Produto)
+    setLivro(Livro)
       
     });
   }
@@ -54,7 +53,7 @@ const [Atualizar, setAtualizar] = useState(false)
     const metodo = "put";
     axios[metodo](urlAPI + "/" + Livro.id, Livro).then((resp) => {
       const lista = getListaAtualizada(resp.data);
-      setProduto(resp.data);
+      setLivro(resp.data);
       setLista(lista);
     });
     setAtualizar(false);
@@ -73,12 +72,14 @@ const [Atualizar, setAtualizar] = useState(false)
   const atualizaCampo = (event) => {
     const Livros = Livro
     Livros[event.target.nomeProd] = event.target.value;
-    setProduto(Livros)
+    setLivro(Livros)
   }
 
   const renderForm = () => {
     return (
       <div className="inserir-container">
+      
+        {console.log(Livro,lista)}
         <label> <p className="textLabel">Código do Livro:</p> </label>
         <input
           type="text"
@@ -118,7 +119,7 @@ const [Atualizar, setAtualizar] = useState(false)
 
   const carregar = (Livro) => {
     setAtualizar(true)
-    setProduto(Livro)
+    setLivro(Livro)
   }
 
   const remover = (Livro) => {
@@ -131,18 +132,7 @@ const [Atualizar, setAtualizar] = useState(false)
 
   const renderTable = () => {
     return (
-      <div className="listagem">
-        <table className="listaLivros" id="tblListaLivros">
-          <thead>
-            <tr className="cabecTabela">
-              <th className="tabTituloCodLivro">Código do Livro</th>
-              <th className="tabTituloNomeLivro">Nome do Livro</th>
-              <th className="">Data de Leitura</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
+      <div>
             {lista.map((Livro) => (
               <tr key={Livro.id}>
                 <td>{Livro.codLivro}</td>
@@ -156,8 +146,6 @@ const [Atualizar, setAtualizar] = useState(false)
                 </td>
               </tr>
             ))}
-          </tbody>
-        </table>
       </div>
     );
   }

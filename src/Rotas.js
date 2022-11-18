@@ -5,6 +5,7 @@ import CrudAluno from './components/CrudAluno/CrudAluno';
 import AuthService from './services/Auth.service';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import CrudLivro from './components/CrudLivro/CrudLivro'
 export default function Rotas() {
     const [currentUser, setCurrentUser] = useState(undefined);
     useEffect(() => {
@@ -61,6 +62,7 @@ export default function Rotas() {
             <Route path='/login' element={<Login />} />
             <Route path='/logout' element={<Logout />} />
             <Route path="*" to='/' />
+            <Route path="/livro" element={<CrudLivro/>}/>
         </Routes>
     )
 }

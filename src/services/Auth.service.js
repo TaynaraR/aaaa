@@ -3,9 +3,11 @@ import axios from "axios";
 const API_URL = "http://localhost:5172/api/Home/";
 const login = (username, senha) => {
     return axios
-        .post(API_URL + "auth", {
-            username,
-            senha,
+        .post(API_URL + "login", {
+            id:0,
+            username:username,
+            senha:senha,
+            role:"string"
         })
         .then((response) => {
             console.log("response: " + JSON.stringify(response.data.token))

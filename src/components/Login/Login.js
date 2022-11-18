@@ -8,6 +8,7 @@ export default function Login() {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
     async function handleSubmit(evento) {
+        console.log(username,password)
         evento.preventDefault();
         const userForm = { username, password };
         if (!username || !password) {
@@ -15,10 +16,7 @@ export default function Login() {
         } else {
             AuthService.login(username, password).then(
                 () => {
-                    console.log("localStorage: " +
-
-                        localStorage.getItem("user"));
-                    navigate("/");
+                    navigate("/livro");
                     window.location.reload(); // atualiza o localStorage
                 },
                 (error) => {
